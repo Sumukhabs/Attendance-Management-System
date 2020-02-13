@@ -1,0 +1,78 @@
+
+DATABASE OPERATIONS:
+
+
+
+1. create table admin(name varchar(20),contact int not null unique,username varchar(20) not null unique,password varchar(20),primary key(name));
+
+2. create table semister(sem varchar(20),primary key(sem));
+
+3. create table coursecode(course_code varchar(20),primary key(course_code));
+
+4. create table years(year int,primary key(year));
+
+5. create table section(sec varchar(10),primary key(sec));
+
+6. create table course(course_id varchar(20),course_name varchar(20),sem varchar(20),lecture_name varchar(20),year int,unique(course_id,year),Foreign key(course_id) references coursecode(course_code),Foreign key(sem) references semister(sem) on delete cascade,Foreign key(lecture_name) references admin(name) on delete cascade,Foreign key(year) references years(year) on delete cascade);
+
+7. create table student(USN varchar(20),name varchar(25),course_id varchar(20),sem varchar(20),sec varchar(10),primary key(USN),Foreign key(course_id) references coursecode(course_code) on delete cascade,Foreign key(sem) references semister(sem) on delete cascade,Foreign key(sec) references section(sec) on delete cascade);
+
+8. create table attendance(USN varchar(20),course_id varchar(20),no_of_attended_classes int,no_of_classes_absent int,total_classes int,year int,attendace_percent,sem varchar(20),Foreign key(USN) references student(USN) on delete cascade,Foreign key(course_id) references coursecode(course_code) on delete cascade,Foreign key(year) references years(year) on delete cascade,Foreign key(sem) references semister(sem) on delete cascade);
+ 
+
+
+9. insert into admin values('admin_name',9898989898,'admin','adminpass');         //similarlay you can add all the admins and their password
+
+10. insert into semister values('3rd Semister');
+11. insert into semister values('4th Semister');
+12. insert into semister values('5th Semister');
+13. insert into semister values('6th Semister');
+14. insert into semister values('7th Semister');
+15. insert into semister values('8th Semister');
+
+16. insert into coursecode values('17CS31');           //similarly you can add all the coursecode of the department
+
+17. insert into  years values(2018);
+18. insert into years values(2019);         //similarly all the years as per the record
+
+19. insert into section values('A Section');
+20. insert into section values('B Section');
+  
+
+21.CREATE or replace PROCEDURE cpr
+   AS
+   begin
+   update attendance set total_classes=total_classes+1;
+   end/                                                                    //procdure 1
+
+
+22. create or replace procedure cpr2
+    as
+    begin
+    update attendance set attendance_percent=(100*no_of_attended_classes)/total_classes;
+    end/                                                                                      //procedure 2
+
+
+23. Create or replace trigger usntr
+    Before insert or update on student
+    For each row
+    Begin
+    If(length(:new.USN)>10) then
+    RAISE_APPLICATION_ERROR(-20002,'Enter Correct USN');
+    End if;
+    End;                                                                        //Trigger 1
+
+
+24. Create or replace trigger usntr2
+    Before insert or update on student
+    For each row
+    Begin
+    If(length(:new.USN)<10) then
+    RAISE_APPLICATION_ERROR(-20001,'Enter Correct USN');
+    End if;
+    End;                                                                      //trigger 2
+
+
+25. create or replace view v1 as select A.USN,A.course_id,C.course_name,A.no_of_attended_classes,A.no_of_classes_absent,A.total_classes,A.attendance_percent,A.year,A.sem from attendance A,course C where A.course_id=C.course_id        //view
+
+

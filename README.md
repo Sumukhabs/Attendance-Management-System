@@ -1,5 +1,3 @@
-\#Attendance management
-
 ## Student Attendance Management System using Java and Oracle Database  
 
 
@@ -44,8 +42,8 @@
 ![](screenshots/Picture1.png)  
 
 
-![](screenshots/Picture2.png)  
- #
+![](screenshots/Picture2.png) 
+ 
 
 ![](screenshots/Picture3.png)  
 

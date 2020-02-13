@@ -34,7 +34,47 @@
 ###### note: Ifyou are using Notepad++ , then you can simply get access to cmd prompt by going  File--> Open Containing Folder-->CMD.  
 
 
-## Screenshots:   
-![](screenshots/picture1.png)
+## Screenshots: 
 
 
+
+![](screenshots/Picture1.png)  
+
+
+![](screenshots/Picture2.png)  
+
+
+![](screenshots/Picture3.png)  
+
+
+![](screenshots/Picture4.png)  
+
+
+![](screenshots/Picture5.png)  
+
+
+![](screenshots/Picture6.png)  
+
+
+
+![](screenshots/Picture7.png)  
+ 
+ 
+
+![](screenshots/Picture8.png)   
+
+
+
+![](screenshots/Picture9.png)  
+
+
+
+![](screenshots/Picture10.png)  
+
+
+
+![](screenshots/Picture11.png)  
+
+
+
+![](screenshots/Picture12.png)   
